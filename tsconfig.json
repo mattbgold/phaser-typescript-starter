@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "compilerOptions": {
+    "lib": ["es5", "es6", "dom", "es2015.core"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "ES5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": false,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "declaration": false,
+    "noImplicitAny": false,
+    "isolatedModules": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmitHelpers": false,
+    "types": ["reflect-metadata"]
+  },
+  "exclude": [
+    "node_modules",
+    "!node_modules/phaser",
+    "!node_modules/phaser-plugin-isometric",
+    "!node_modules/reflect-metadata",
+    "!node_modules/inversify"
+  ]
+}
+
