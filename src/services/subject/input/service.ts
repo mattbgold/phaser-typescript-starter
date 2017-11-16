@@ -7,4 +7,9 @@ export class InputSubject extends BaseSubject {
 	constructor() {
 		super();
 	}
+	
+	upPressed: boolean;
+	downPressed: boolean;
+	leftPressed: boolean;
+	rightPressed: boolean;
 }

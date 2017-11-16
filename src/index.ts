@@ -2,7 +2,6 @@ import "reflect-metadata";
 import 'pixi';
 import 'p2';
 import * as Phaser from 'phaser';
-import 'phaser-plugin-isometric/dist/phaser-plugin-isometric';
 import Group = Phaser.Group;
 import {GameConfig, getConfig, GameStates} from "./config";
 import {BaseController} from "./controllers/base";
@@ -13,14 +12,13 @@ import {TitleState} from "./controllers/title/state";
 import {PreloadState} from "./controllers/preload/state";
 import {ContainerKeys} from "./inversify.config";
 import {GameState} from "./controllers/game/state";
-import {SystemSubject} from "./services/subject/system";
 import {GameSubject} from "./services/subject/game";
 
 class TbsGame {
   game: Phaser.Game;
 
   constructor() {
-    this.game = new Phaser.Game(960, 640, Phaser.AUTO, "content", this);
+    this.game = new Phaser.Game(1280, 720, Phaser.AUTO, "content", this);
 
     container.bind<Game>(Game).toConstantValue(this.game);
     
@@ -29,8 +27,7 @@ class TbsGame {
     this.game.state.add(GameStates.TITLE, new TitleState(this.game, container.getAll<BaseController>(ContainerKeys.CTRL_TITLE)));
     this.game.state.add(GameStates.GAME, new GameState(
         this.game, 
-        container.getAll<BaseController>(ContainerKeys.CTRL_GAME), 
-        container.get<GameConfig>(ContainerKeys.CONFIG),
+        container.getAll<BaseController>(ContainerKeys.CTRL_GAME),
         container.get<GameSubject>(GameSubject)
     ));
     
